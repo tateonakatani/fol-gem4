@@ -5,14 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>can4 dev</title>
 <style>
-  html, body { margin:0; height:100%; overflow:hidden; background:#aeeaff; }
-  body { display:flex; align-items:center; justify-content:center; }
-  canvas { display:block; width:1920px; height:1080px; background:#fff; box-shadow:0 0 .5rem rgba(0,0,0,.08); }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #aeeaff;
+  }
+
+  /* 画面に収まるようにリサイズ。中身の座標は 1920x1080 のまま */
+  canvas {
+    display: block;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 .5rem rgba(0,0,0,.08);
+
+    /* アスペクト比 16:9 を維持しつつ、横幅優先でフィット */
+    aspect-ratio: 16 / 9;
+    width: 100vw;
+    max-height: 100vh;
+    height: auto;
+  }
 </style>
 </head>
 <body>
   <canvas id="canvas" width="1920" height="1080"></canvas>
-  <!-- ここを gem4.js に！ 先頭に ./ を付けると安全 -->
   <script src="./gem4.js" defer></script>
 </body>
 </html>

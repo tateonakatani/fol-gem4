@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>can4 dev</title>
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    background: #aeeaff;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>can4 dev</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #aeeaff;
+      touch-action: none;
+      /* モバイルでのスクロールやズームを防止 */
+    }
 
-  /* 画面に収まるようにリサイズ。中身の座標は 1920x1080 のまま */
-  canvas {
-    display: block;
-    margin: 0 auto;
-    background: #fff;
-    box-shadow: 0 0 .5rem rgba(0,0,0,.08);
+    /* 画面に収まるようにリサイズ。中身の座標は 1920x1080 のまま */
+    canvas {
+      display: block;
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      background: #fff;
+      box-shadow: 0 0 .5rem rgba(0, 0, 0, .08);
 
-    /* アスペクト比 16:9 を維持しつつ、横幅優先でフィット */
-    aspect-ratio: 16 / 9;
-    width: 100vw;
-    max-height: 100vh;
-    height: auto;
-  }
-</style>
+      /* アスペクト比 16:9 を維持しつつ、画面内に最大表示 */
+      width: min(100%, 177.78vh);
+      height: min(100%, 56.25vw);
+    }
+  </style>
 </head>
+
 <body>
   <canvas id="canvas" width="1920" height="1080"></canvas>
   <script src="./gem4.js" defer></script>
 </body>
+
 </html>
